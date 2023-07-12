@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTO.ReaccionDTO;
 import com.example.demo.entity.Reaccion;
 import com.example.demo.services.ReaccionService;
 
@@ -20,6 +21,7 @@ public class ReaccionController {
         this.reaccionService = reaccionService;
     }
 
+    @CrossOrigin
     @PostMapping
     public Reaccion crearReaccion(@RequestBody Reaccion reaccion) {
         return reaccionService.crearReaccion(reaccion);
@@ -35,6 +37,7 @@ public class ReaccionController {
         return reaccionService.actualizarReaccion(idReaccion, reaccion);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public void eliminarReaccion(@PathVariable("id") Long idReaccion) {
         reaccionService.eliminarReaccion(idReaccion);
@@ -43,5 +46,10 @@ public class ReaccionController {
     @GetMapping
     public List<Reaccion> obtenerTodasLasReacciones() {
         return reaccionService.obtenerTodasLasReacciones();
+    }
+    @CrossOrigin
+    @GetMapping("/dto")
+    public List<ReaccionDTO> obtenerReaccionesDTO() {
+        return reaccionService.obtenerReaccionesDTO();
     }
 }

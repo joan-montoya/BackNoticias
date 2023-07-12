@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.DTO.ReaccionDTO;
 import com.example.demo.entity.Reaccion;
 
 import java.util.List;
@@ -15,4 +16,5 @@ public interface ReaccionService {
  Reaccion actualizarReaccion(Long idReaccion, Reaccion reaccion);
  void eliminarReaccion(Long idReaccion);
  List<Reaccion> obtenerTodasLasReacciones();
+ List<ReaccionDTO> obtenerReaccionesDTO();
 }

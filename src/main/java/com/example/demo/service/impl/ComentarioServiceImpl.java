@@ -1,6 +1,9 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.DTO.ComentarioDTO;
+import com.example.demo.DTO.MiembroDTO;
 import com.example.demo.entity.Comentario;
+import com.example.demo.entity.Favorito;
 import com.example.demo.entity.Noticia;
 import com.example.demo.entity.Usuario;
 import com.example.demo.repository.ComentarioRepository;
@@ -30,21 +33,27 @@ public class ComentarioServiceImpl implements ComentarioService {
         this.noticiaRepository = noticiaRepository;
     }
 
+    //@Override
+    //public Comentario agregarComentario(Comentario comentario) {
+     //   Long idUsuario = comentario.getUsuario().getIdUsuario();
+     //   Long idNoticia = comentario.getNoticia().getIdNoticia();
+
+     //   Usuario usuario = usuarioRepository.findById(idUsuario)
+     //           .orElseThrow(NoSuchElementException::new);
+     //   comentario.setUsuario(usuario);
+
+      //  Noticia noticia = noticiaRepository.findById(idNoticia)
+      //          .orElseThrow(NoSuchElementException::new);
+       // comentario.setNoticia(noticia);
+
+      //  return comentarioRepository.save(comentario);
+    //}
+    
     @Override
     public Comentario agregarComentario(Comentario comentario) {
-        Long idUsuario = comentario.getUsuario().getIdUsuario();
-        Long idNoticia = comentario.getNoticia().getIdNoticia();
-
-        Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(NoSuchElementException::new);
-        comentario.setUsuario(usuario);
-
-        Noticia noticia = noticiaRepository.findById(idNoticia)
-                .orElseThrow(NoSuchElementException::new);
-        comentario.setNoticia(noticia);
-
         return comentarioRepository.save(comentario);
     }
+
 
     @Override
     public Comentario obtenerComentarioPorId(Long id) {
@@ -75,6 +84,11 @@ public class ComentarioServiceImpl implements ComentarioService {
         } else {
             throw new NoSuchElementException();
         }
+    }
+    
+    @Override
+    public List<ComentarioDTO> obtenerComentariosDTO() {
+        return comentarioRepository.obtenerComentariosDTO();
     }
 }
 

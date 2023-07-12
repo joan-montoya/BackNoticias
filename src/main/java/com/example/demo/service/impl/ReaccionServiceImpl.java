@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.DTO.ReaccionDTO;
 import com.example.demo.entity.Reaccion;
 import com.example.demo.repository.ReaccionRepository;
 import com.example.demo.services.ReaccionService;
@@ -53,6 +54,11 @@ public class ReaccionServiceImpl implements ReaccionService {
  @Override
  public List<Reaccion> obtenerTodasLasReacciones() {
      return reaccionRepository.findAll();
+ }
+ 
+ @Override
+ public List<ReaccionDTO> obtenerReaccionesDTO() {
+     return reaccionRepository.obtenerReaccionesDTO();
  }
 }
 

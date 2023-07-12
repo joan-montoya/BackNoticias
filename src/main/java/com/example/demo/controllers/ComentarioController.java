@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTO.ComentarioDTO;
+import com.example.demo.DTO.MiembroDTO;
 import com.example.demo.entity.Comentario;
 import com.example.demo.services.ComentarioService;
 
@@ -21,6 +23,7 @@ public class ComentarioController {
         this.comentarioService = comentarioService;
     }
 
+    @CrossOrigin
     @PostMapping
     public Comentario agregarComentario(@RequestBody Comentario comentario) {
         return comentarioService.agregarComentario(comentario);
@@ -44,5 +47,11 @@ public class ComentarioController {
     @DeleteMapping("/{id}")
     public void eliminarComentario(@PathVariable Long id) {
         comentarioService.eliminarComentario(id);
+    }
+    
+    @CrossOrigin
+    @GetMapping("/dto")
+    public List<ComentarioDTO> obtenerComentariosDTO() {
+        return comentarioService.obtenerComentariosDTO();
     }
 }

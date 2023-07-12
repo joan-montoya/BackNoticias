@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.DTO.FavoritoDTO;
 import com.example.demo.entity.Favorito;
 import com.example.demo.entity.Noticia;
 import com.example.demo.entity.Reaccion;
@@ -39,6 +40,7 @@ public class FavoritoController {
         return ResponseEntity.ok(favoritos);
     }
     
+    @CrossOrigin
     @PostMapping
     public Favorito crearFavorito(@RequestBody Favorito favorito) {
         return favoritoService.crearFavorito(favorito);
@@ -46,9 +48,16 @@ public class FavoritoController {
 
 
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarFavorito(@PathVariable Long id) {
         favoritoService.eliminarFavorito(id);
         return ResponseEntity.noContent().build();
+    }
+    
+    @CrossOrigin
+    @GetMapping("/dto")
+    public List<FavoritoDTO> obtenerFavoritosDTO() {
+        return favoritoService.obtenerFavoritosDTO();
     }
 }

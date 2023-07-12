@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.DTO.FavoritoDTO;
 import com.example.demo.entity.Favorito;
 import com.example.demo.entity.Noticia;
 import com.example.demo.entity.Reaccion;
@@ -39,6 +40,12 @@ public class FavoritoServiceImpl implements FavoritoService {
     public void eliminarFavorito(Long favoritoId) {
         favoritoRepository.deleteById(favoritoId);
     }
+    
+    @Override
+    public List<FavoritoDTO> obtenerFavoritosDTO() {
+        return favoritoRepository.obtenerFavoritosDTO();
+    }
+    
 }
 
 
