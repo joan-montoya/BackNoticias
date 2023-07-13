@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.DTO.GrupoDTO;
 import com.example.demo.entity.Categoria;
 import com.example.demo.entity.Grupo;
+import com.example.demo.entity.Noticia;
 import com.example.demo.services.CategoriaService;
 import com.example.demo.services.GrupoService;
 
@@ -58,14 +59,15 @@ public class GrupoController {
 
     @CrossOrigin
     @PutMapping("/{id}")
-    public ResponseEntity<Grupo> updateGrupo(@PathVariable Long id, @RequestBody Grupo grupo) {
+    public ResponseEntity<Grupo> updateGrupo(@PathVariable("id") Long id, @RequestBody Grupo grupo) {
         Grupo updatedGrupo = grupoService.updateGrupo(id, grupo);
         if (updatedGrupo != null) {
-            return ResponseEntity.ok(updatedGrupo);
+            return new ResponseEntity<>( HttpStatus.OK);
         } else {
-            return ResponseEntity.notFound().build();
+        	return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteGrupo(@PathVariable Long id) {

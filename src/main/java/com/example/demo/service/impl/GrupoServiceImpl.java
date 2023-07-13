@@ -4,6 +4,7 @@ import com.example.demo.DTO.GrupoDTO;
 import java.util.ArrayList;
 
 import com.example.demo.entity.Grupo;
+import com.example.demo.entity.Noticia;
 import com.example.demo.entity.Usuario;
 import com.example.demo.repository.GrupoRepository;
 import com.example.demo.services.GrupoService;
@@ -50,12 +51,18 @@ public class GrupoServiceImpl implements GrupoService {
         return grupoRepository.save(grupo);
     }
 
+    
     @Override
     public Grupo updateGrupo(Long id, Grupo grupo) {
-        Grupo existingGrupo = grupoRepository.findById(id).orElse(null);
-        if (existingGrupo != null) {
-            grupo.setIdGrupo(existingGrupo.getIdGrupo());
-            return grupoRepository.save(grupo);
+        Optional<Grupo> optionalGrupo = grupoRepository.findById(id);
+        if (optionalGrupo.isPresent()) {
+            Grupo grupoExistente = optionalGrupo.get();
+            grupoExistente.setNombre(grupo.getNombre());
+            grupoExistente.setDescripcion(grupo.getDescripcion());
+            grupoExistente.setCodigoAcceso(grupo.getCodigoAcceso());
+            grupoExistente.setAdministrador(grupo.getAdministrador());
+            grupoExistente.setImagen(grupo.getImagen());
+            return grupoRepository.save(grupoExistente);
         } else {
             return null;
         }
