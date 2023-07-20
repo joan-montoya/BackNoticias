@@ -51,17 +51,20 @@ public class CategoriaController {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 
+    @CrossOrigin
     @PutMapping("/{idCategoria}")
-    public ResponseEntity<Categoria> actualizarCategoria(@PathVariable Long idCategoria, @RequestBody Categoria categoria) {
+    public ResponseEntity<Void> actualizarCategoria(@PathVariable Long idCategoria, @RequestBody Categoria categoria) {
         Categoria categoriaExistente = categoriaService.obtenerCategoriaPorId(idCategoria);
         if (categoriaExistente != null) {
             categoria.setIdCategoria(idCategoria);
-            Categoria categoriaActualizada = categoriaService.actualizarCategoria(categoria);
-            return ResponseEntity.ok(categoriaActualizada);
+            categoriaService.actualizarCategoria(categoria);
+            return ResponseEntity.ok().build(); // Respuesta sin contenido
         }
         return ResponseEntity.notFound().build();
     }
 
+
+    @CrossOrigin
     @DeleteMapping("/{idCategoria}")
     public ResponseEntity<Void> eliminarCategoria(@PathVariable Long idCategoria) {
         boolean eliminado = categoriaService.eliminarCategoria(idCategoria);

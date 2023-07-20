@@ -13,7 +13,7 @@ import com.example.demo.entity.Reaccion;
 @Repository
 public interface ReaccionRepository extends JpaRepository<Reaccion, Long> {
 	
-	@Query("SELECT new com.example.demo.DTO.ReaccionDTO(r.idReaccion, r.tipoReaccion, r.usuario.idUsuario, r.noticia.idNoticia) FROM Reaccion r")
+	@Query("SELECT new com.example.demo.DTO.ReaccionDTO(r.idReaccion, r.tipoReaccion, r.usuario.idUsuario, r.noticia.idNoticia, r.noticia.grupo.idGrupo) FROM Reaccion r")
     List<ReaccionDTO> obtenerReaccionesDTO();
 }
 

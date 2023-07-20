@@ -69,6 +69,7 @@ public class GrupoController {
     }
     
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteGrupo(@PathVariable Long id) {
         boolean deleted = grupoService.deleteGrupo(id);

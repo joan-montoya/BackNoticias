@@ -18,7 +18,7 @@ public interface NoticiaService {
 
     Noticia actualizarNoticia(Long id, Noticia noticia);
 
-    boolean eliminarNoticia(Long id);
+    void eliminarNoticia(Long idNoticia); 
     
     List<NoticiaDTO> obtenerNoticiasDTO();
 }

@@ -6,13 +6,15 @@ public class ReaccionDTO {
 	private String tipoReaccion;
 	private Long idUsuario;
 	private Long idNoticia;
+	private Long idGrupo;
 	
-	public ReaccionDTO(Long idReaccion, String tipoReaccion, Long idUsuario, Long idNoticia) {
+	public ReaccionDTO(Long idReaccion, String tipoReaccion, Long idUsuario, Long idNoticia, Long idGrupo) {
 		super();
 		this.idReaccion = idReaccion;
 		this.tipoReaccion = tipoReaccion;
 		this.idUsuario = idUsuario;
 		this.idNoticia = idNoticia;
+		this.idGrupo = idGrupo;
 	}
 
 	public Long getIdReaccion() {
@@ -46,6 +48,16 @@ public class ReaccionDTO {
 	public void setIdNoticia(Long idNoticia) {
 		this.idNoticia = idNoticia;
 	}
+
+	public Long getIdGrupo() {
+		return idGrupo;
+	}
+
+	public void setIdGrupo(Long idGrupo) {
+		this.idGrupo = idGrupo;
+	}
+	
+	
 	
 	
 }

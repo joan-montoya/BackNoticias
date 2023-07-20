@@ -37,6 +37,7 @@ public class MiembroController {
     }
 
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarMiembro(@PathVariable("id") Long id) {
         miembroService.eliminarMiembro(id);

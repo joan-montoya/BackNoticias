@@ -56,21 +56,19 @@ public class NoticiaServiceImpl implements NoticiaService {
             noticiaExistente.setGrupo(noticia.getGrupo());
             noticiaExistente.setCategoria(noticia.getCategoria());
             noticiaExistente.setAdministrador(noticia.getAdministrador());
+            noticiaExistente.setImagen(noticia.getImagen());
             return noticiaRepository.save(noticiaExistente);
         } else {
             return null;
         }
     }
 
+   
+    
+    
     @Override
-    public boolean eliminarNoticia(Long id) {
-        Optional<Noticia> optionalNoticia = noticiaRepository.findById(id);
-        if (optionalNoticia.isPresent()) {
-            noticiaRepository.deleteById(id);
-            return true;
-        } else {
-            return false;
-        }
+    public void eliminarNoticia(Long idNoticia) {
+        noticiaRepository.deleteById(idNoticia);
     }
     
     @Override
@@ -88,6 +86,7 @@ public class NoticiaServiceImpl implements NoticiaService {
                 noticia.getContenido(),
                 noticia.getGrupo().getIdGrupo(),
                 noticia.getCategoria().getIdCategoria(),
+                noticia.getAdministrador().getIdUsuario(),
                 noticia.getImagen()
             );
             dtos.add(dto);

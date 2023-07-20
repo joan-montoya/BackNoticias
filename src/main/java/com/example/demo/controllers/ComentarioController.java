@@ -39,11 +39,13 @@ public class ComentarioController {
         return comentarioService.obtenerTodosLosComentarios();
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
     public Comentario actualizarComentario(@PathVariable Long id, @RequestBody Comentario comentario) {
         return comentarioService.actualizarComentario(id, comentario);
     }
 
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public void eliminarComentario(@PathVariable Long id) {
         comentarioService.eliminarComentario(id);

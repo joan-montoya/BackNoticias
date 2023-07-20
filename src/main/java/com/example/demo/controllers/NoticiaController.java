@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.DTO.GrupoDTO;
 import com.example.demo.DTO.NoticiaDTO;
 import com.example.demo.entity.Noticia;
+import com.example.demo.entity.Usuario;
 import com.example.demo.services.NoticiaService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,7 @@ public class NoticiaController {
         return new ResponseEntity<>(nuevaNoticia, HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
     public ResponseEntity<Noticia> actualizarNoticia(@PathVariable("id") Long id, @RequestBody Noticia noticia) {
         Noticia noticiaActualizada = noticiaService.actualizarNoticia(id, noticia);
@@ -68,14 +70,13 @@ public class NoticiaController {
         }
     }
 
+    
+    @CrossOrigin
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarNoticia(@PathVariable("id") Long id) {
-        boolean eliminada = noticiaService.eliminarNoticia(id);
-        if (eliminada) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public void eliminarNoticia(@PathVariable("id") Long idNoticia) {
+    	noticiaService.eliminarNoticia(idNoticia);
     }
+    
+    
 }
 

@@ -15,56 +15,68 @@ public class NoticiaDTO {
     private String contenido;
     private Long idGrupo;
     private Long idCategoria;
+    private Long idUsuario;
     private byte[] imagen;
+    
+	public NoticiaDTO(Long idNoticia, String titulo, String contenido, Long idGrupo, Long idCategoria, Long idUsuario,
+			byte[] imagen) {
+		super();
+		this.idNoticia = idNoticia;
+		this.titulo = titulo;
+		this.contenido = contenido;
+		this.idGrupo = idGrupo;
+		this.idCategoria = idCategoria;
+		this.idUsuario = idUsuario;
+		this.imagen = imagen;
+	}
 
-    public NoticiaDTO(Long idNoticia, String titulo, String contenido, Long idGrupo, Long idCategoria, byte[] imagen) {
-        this.idNoticia = idNoticia;
-        this.titulo = titulo;
-        this.contenido = contenido;
-        this.idGrupo = idGrupo;
-        this.idCategoria = idCategoria;
-        this.setImagen(imagen);
-    }
+	public Long getIdNoticia() {
+		return idNoticia;
+	}
 
-    public Long getIdNoticia() {
-        return idNoticia;
-    }
+	public void setIdNoticia(Long idNoticia) {
+		this.idNoticia = idNoticia;
+	}
 
-    public void setIdNoticia(Long idNoticia) {
-        this.idNoticia = idNoticia;
-    }
+	public String getTitulo() {
+		return titulo;
+	}
 
-    public String getTitulo() {
-        return titulo;
-    }
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
+	public String getContenido() {
+		return contenido;
+	}
 
-    public String getContenido() {
-        return contenido;
-    }
+	public void setContenido(String contenido) {
+		this.contenido = contenido;
+	}
 
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
-    }
+	public Long getIdGrupo() {
+		return idGrupo;
+	}
 
-    public Long getIdGrupo() {
-        return idGrupo;
-    }
+	public void setIdGrupo(Long idGrupo) {
+		this.idGrupo = idGrupo;
+	}
 
-    public void setIdGrupo(Long idGrupo) {
-        this.idGrupo = idGrupo;
-    }
+	public Long getIdCategoria() {
+		return idCategoria;
+	}
 
-    public Long getIdCategoria() {
-        return idCategoria;
-    }
+	public void setIdCategoria(Long idCategoria) {
+		this.idCategoria = idCategoria;
+	}
 
-    public void setIdCategoria(Long idCategoria) {
-        this.idCategoria = idCategoria;
-    }
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
 
 	public byte[] getImagen() {
 		return imagen;
@@ -74,6 +86,8 @@ public class NoticiaDTO {
 		this.imagen = imagen;
 	}
 
+	
+    
 
 }
 
