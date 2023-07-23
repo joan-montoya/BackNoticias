@@ -13,17 +13,19 @@ public class NoticiaDTO {
     private Long idNoticia;
     private String titulo;
     private String contenido;
+    private String activo;
     private Long idGrupo;
     private Long idCategoria;
     private Long idUsuario;
     private byte[] imagen;
     
-	public NoticiaDTO(Long idNoticia, String titulo, String contenido, Long idGrupo, Long idCategoria, Long idUsuario,
-			byte[] imagen) {
+	public NoticiaDTO(Long idNoticia, String titulo, String contenido, String activo, Long idGrupo, Long idCategoria,
+			Long idUsuario, byte[] imagen) {
 		super();
 		this.idNoticia = idNoticia;
 		this.titulo = titulo;
 		this.contenido = contenido;
+		this.activo = activo;
 		this.idGrupo = idGrupo;
 		this.idCategoria = idCategoria;
 		this.idUsuario = idUsuario;
@@ -52,6 +54,14 @@ public class NoticiaDTO {
 
 	public void setContenido(String contenido) {
 		this.contenido = contenido;
+	}
+
+	public String getActivo() {
+		return activo;
+	}
+
+	public void setActivo(String activo) {
+		this.activo = activo;
 	}
 
 	public Long getIdGrupo() {
@@ -85,8 +95,9 @@ public class NoticiaDTO {
 	public void setImagen(byte[] imagen) {
 		this.imagen = imagen;
 	}
-
+    
 	
+
     
 
 }

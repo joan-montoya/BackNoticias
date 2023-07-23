@@ -12,6 +12,9 @@ public class Noticia {
 
     @Column(name = "titulo", nullable = false)
     private String titulo;
+    
+    @Column(name = "activo ", nullable = false)
+    private String activo ;
 
     @Column(name = "contenido", nullable = false)
     private String contenido;
@@ -100,4 +103,14 @@ public class Noticia {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public String getActivo() {
+		return activo;
+	}
+
+	public void setActivo(String activo) {
+		this.activo = activo;
+	}
+	
+	
 }

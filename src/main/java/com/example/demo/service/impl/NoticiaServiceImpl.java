@@ -57,6 +57,7 @@ public class NoticiaServiceImpl implements NoticiaService {
             noticiaExistente.setCategoria(noticia.getCategoria());
             noticiaExistente.setAdministrador(noticia.getAdministrador());
             noticiaExistente.setImagen(noticia.getImagen());
+            noticiaExistente.setActivo(noticia.getActivo());
             return noticiaRepository.save(noticiaExistente);
         } else {
             return null;
@@ -84,10 +85,12 @@ public class NoticiaServiceImpl implements NoticiaService {
                 noticia.getIdNoticia(),
                 noticia.getTitulo(),
                 noticia.getContenido(),
+                noticia.getActivo(),
                 noticia.getGrupo().getIdGrupo(),
                 noticia.getCategoria().getIdCategoria(),
                 noticia.getAdministrador().getIdUsuario(),
                 noticia.getImagen()
+                
             );
             dtos.add(dto);
         }
